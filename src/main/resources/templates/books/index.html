@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<title>Bookers</title>
+</head>
+<body>
+	<h1>投稿一覧ページ</h1>
+	<table>
+		<thead>
+			<tr>
+				<td>id</td>
+				<td>Title</td>
+				<td>Body</td>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="book : ${bookList}">
+				<td th:text="${book.id}"></td>
+				<td th:text="${book.title}"></td>
+				<td th:text="${book.body}"></td>
+				<td>
+					<a href="#" th:href="@{'/books/' + ${book.id}}"><button>詳細</button></a>
+				</td>
+				<td>
+					<a href="#" th:href="@{'/edit/' + ${book.id}}"><button>編集</button></a>
+				</td>
+				<td>
+					<form action="#" th:action="@{'/delete/' + ${book.id}}" method="post"><button>削除</button></form>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	
+	<a href="/form">新規投稿 ==></a>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>投稿詳細ページ</h1>
+	<strong>Title</strong>
+	<p th:text="${bookForm.title}"></p>
+	
+	<strong>Body</strong>
+	<p th:text="${bookForm.body}"></p>
+	
+	<table>
+		<tr>
+			<td>
+				<a href="#" th:href="@{'/edit/' + ${bookForm.id}}"><button>編集</button></a>
+			</td>
+			<td>
+				<form action="#" th:action="@{'/delete/' + ${bookForm.id}}" method="post"><button>削除</button></form>
+			</td>
+		</tr>
+	</table>
+	
+	<a href="/index">投稿一覧に戻る==></a>
+</body>
+</html>
